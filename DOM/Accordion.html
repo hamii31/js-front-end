@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+      <div id="accordion">
+        <div class="head">
+          DOM Manipulations Exercise <span class="button" onclick="solve()">More</span>
+        </div>
+        <div id="extra" style="display: none">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit
+                anim id est laborum.
+              </p>
+        </div>
+        <div id="out"></div>
+    </div>
+    </body>
+</html>
+<script>
+   function solve(){
+    var element = document.getElementsByClassName('button')[0].textContent;
+
+    if(element == "More"){
+      document.getElementsByClassName('button')[0].textContent = "Less";
+
+      var hidden = document.getElementById('extra');
+      hidden.style.display = 'block';
+    }
+    if(element == "Less"){
+      document.getElementsByClassName('button')[0].textContent = "More";
+
+      var hidden = document.getElementById('extra');
+      hidden.style.display = 'none';
+    }
+
+   }
+
+</script>
