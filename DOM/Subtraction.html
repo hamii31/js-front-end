@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+       <div>
+         <input type="text" id="firstNumber" value="13.33" disabled>
+         <input type="text" id="secondNumber" value="22.18" disabled>
+         <div id="result"></div>
+       </div>
+    </body>
+</html>
+<script>
+   function sub(){
+    var x = document.getElementById("firstNumber").value;
+    var y = document.getElementById("secondNumber").value;
+
+    let sum = Number(x) - Number(y);
+
+    document.getElementById("result").textContent = sum;
+   }
+
+   let result = sub();
+
+</script>
