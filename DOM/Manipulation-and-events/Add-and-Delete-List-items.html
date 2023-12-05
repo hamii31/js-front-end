@@ -1,0 +1,31 @@
+<h1>List of Items</h1>
+<ul id="items"></ul>
+<input type="text" id="newText" />
+<input type="button" value="Add" onclick="solve()">
+<script>
+function solve() {
+  let newElement = document.getElementById("newText").value; // get input
+  let list = document.getElementById("items"); // get list
+
+  if(newElement.length === 0){
+    return; // check if input is empty
+  }
+
+  let listItem = document.createElement("li"); // create new li element
+  listItem.textContent = newElement; // seed new li element with the input value 
+
+  let link = document.createElement("a"); // create new a element
+  let linkText = document.createTextNode("[Delete]"); // create text node for the a element
+
+  link.appendChild(linkText); // seed a element with its text node
+  link.href = "#"; // give a href
+  link.addEventListener("click", deleteItem); // add event listener to the a element
+
+  listItem.appendChild(link); // append Delete to the li element
+  list.appendChild(listItem); // append new li element to the list
+
+  function deleteItem(){
+    listItem.remove(); // create function to remove the li element 
+  }
+}
+</script>
