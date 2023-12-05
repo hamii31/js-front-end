@@ -1,0 +1,19 @@
+<!--  A HTML page holds linear gradient box
+ Moving the mouse should show percentage [0% … 100%],
+depending on the location of mouse
+ Left side  0%; middle  50%; right side  100% -->
+
+
+<html>
+  <head>
+    <title>Mouse in Gradient</title>
+    <link rel="stylesheet" href="gradient.css" />
+    <script src="gradient.js"></script>
+  </head>
+  <body onload="attachGradientEvents()">
+    <div id="gradient-box">
+      <div id="gradient">Click me!</div>
+    </div>
+    <div id="result"></div>
+  </body>
+</html>
