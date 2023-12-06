@@ -1,0 +1,140 @@
+<!-- Create a program that converts different time units. Your task is to add a click event listener to all [CONVERT] buttons. When a button is clicked, read the corresponding input field, convert the value to the three other time units and display it in the input fields.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time Converter</title>
+</head>
+
+<body onload="attachEventsListeners()">
+    <main>
+        <h1>Time Converter</h1>
+        <div>
+            <label for="days">Days: </label>
+            <input type="text" id="days">
+            <input id="daysBtn" type="button" value="Convert">
+        </div>
+        <div>
+            <label for="hours">Hours: </label>
+            <input type="text" id="hours">
+            <input id="hoursBtn" type="button" value="Convert">
+        </div>
+        <div>
+            <label for="minutes">Minutes: </label>
+            <input type="text" id="minutes">
+            <input id="minutesBtn" type="button" value="Convert">
+        </div>
+        <div>
+            <label for="seconds">Seconds: </label>
+            <input type="text" id="seconds">
+            <input id="secondsBtn" type="button" value="Convert">
+        </div>
+    </main>
+</body>
+
+<script>
+  function attachEventsListeners(){
+    document.getElementById("daysBtn").addEventListener("click", convertFromDays);
+    document.getElementById("hoursBtn").addEventListener("click", convertFromHours);
+    document.getElementById("minutesBtn").addEventListener("click", convertFromMinutes);
+    document.getElementById("secondsBtn").addEventListener("click", convertFromSeconds);
+    
+    function convertFromDays(){
+       const target = document.getElementsByTagName("div")[0];
+       const input = target.getElementsByTagName("input")[0].value;
+
+       let hours = Number(input) * 24;
+       document.getElementsByTagName("div")[1].getElementsByTagName("input")[0].value = hours;
+       
+       let minutes = hours * 60;
+       document.getElementsByTagName("div")[2].getElementsByTagName("input")[0].value = minutes;
+
+       let seconds = minutes * 60;
+       document.getElementsByTagName("div")[3].getElementsByTagName("input")[0].value = seconds;
+    }
+
+    function convertFromHours(){
+      const target = document.getElementsByTagName("div")[1];
+      const input = target.getElementsByTagName("input")[0].value;
+
+      let days = Number(input) / 24;
+      document.getElementsByTagName("div")[0].getElementsByTagName("input")[0].value = days;
+
+      let minutes = Number(input) * 60;
+      document.getElementsByTagName("div")[2].getElementsByTagName("input")[0].value = minutes;
+
+      let seconds = minutes * 60;
+      document.getElementsByTagName("div")[3].getElementsByTagName("input")[0].value = seconds;
+    }
+
+    function convertFromMinutes(){
+      const target = document.getElementsByTagName("div")[2];
+      const input = target.getElementsByTagName("input")[0].value;
+
+      let seconds = Number(input) * 60;
+      document.getElementsByTagName("div")[3].getElementsByTagName("input")[0].value = seconds;
+
+      let hours = Number(input) / 60;
+      document.getElementsByTagName("div")[1].getElementsByTagName("input")[0].value = hours;
+
+      let days = hours / 24;
+      document.getElementsByTagName("div")[0].getElementsByTagName("input")[0].value = days;
+    }
+
+    function convertFromSeconds(){
+      const target = document.getElementsByTagName("div")[3];
+      const input = target.getElementsByTagName("input")[0].value;
+
+      let minutes = Number(input) / 60;
+      document.getElementsByTagName("div")[2].getElementsByTagName("input")[0].value = minutes;
+
+      let hours = minutes / 60;
+      document.getElementsByTagName("div")[1].getElementsByTagName("input")[0].value = hours;
+
+      let days = hours / 24;
+      document.getElementsByTagName("div")[0].getElementsByTagName("input")[0].value = days;
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    width: 44%;
+    margin: 2rem auto;
+    text-align: center;
+    background: #f6f6f6;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+main label, main input {
+    display: block;
+}
+
+main input {
+    text-align: center;
+    width: 50%;
+    margin: 1rem auto;
+}
+
+#daysBtn, #hoursBtn, #minutesBtn, #secondsBtn {
+    background: gray;
+    width: 18%;
+    border: 2px solid gray;
+    border-radius: 4px;
+    padding: 4px 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+</style>
+</html>
