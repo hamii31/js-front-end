@@ -1,0 +1,55 @@
+<!-- You will receive an array of strings. For each string, create a div with a paragraph with the string in it. Each paragraph is initially hidden (display:none). Add a click event listener to each div that displays the hidden paragraph. Finally, you should append all divs to the element with an id "content". -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sections</title>
+  </head>
+  <body onload="seed()">
+    <ul id="content"></ul>
+  </body>
+</html>
+<script>
+
+  function seed(arr){
+    for(let i = 0; i<=arr.length - 1;i++){
+      var newElement = arr[i];
+      let list = document.getElementById("content");
+
+      let div = document.createElement("div");
+      let paragraph = document.createElement("p");
+      paragraph.textContent = newElement;
+
+      div.appendChild(paragraph);
+      list.appendChild(div);
+
+      div.addEventListener("click", reveal);
+
+      function reveal(e){
+        const target = e.currentTarget;
+        const p = target.getElementsByTagName("p")[0];
+        p.style.visibility = "visible";
+      }
+      
+    }
+  }
+  var arr = ["mese", "bubo", "dupe"];
+  seed(arr);
+
+</script>
+<style>
+
+  ul{
+    display: inline-block;
+  }
+  div{
+    background-color: blue;
+    margin: 5px;
+    padding: 20px;
+
+    p{
+    visibility: hidden;
+    }
+  }
+
+</style>
