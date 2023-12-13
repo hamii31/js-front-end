@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Painting</title>
+    </head>
+    <body onload="draw()">
+        <ul id="art" type="none"></ul>
+    </body>
+</html>
+<script>
+    function draw(){
+        var list = document.getElementById("art");
+
+       for(let i = 0; i <= 650; i++){
+        var p = document.createElement("p");
+        p.append("|");
+        
+        for(let i = 0; i <= 40; i++){
+
+            var rng = Math.floor(Math.random() * 10);
+
+            if(rng % 2 == 0){
+                p.append(" - ");
+            }
+            else{
+                p.append(" . ");
+            }
+        }
+
+        rng = Math.floor(Math.random() * 10);
+
+        if(rng % 2 == 0){
+            p.style.color = "red";
+        }
+        p.append("|");
+        list.appendChild(p);
+       }
+
+    }
+</script>
+<style>
+    ul{
+        text-align: center;
+        p{
+            margin-top: -33.3px;
+        }
+    }
+    body{
+        background-color: bisque;
+    }
+</style>
